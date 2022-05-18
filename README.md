@@ -1,10 +1,23 @@
-# simple_shell project repository
+# Simple Shell
+What really happens when you type a command into a shell? How
+does it know how to run programs and interprets user inputs? Well, you are in the right pod! This project dissects the shell program that allows you to even [explain to anyone](https://fs.blog/2012/04/feynman-technique/) without the use of the internet :) Excited? noe let's dig in!
+![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
+## Description
+The simple shell is an application that reads lines from either a file or the terminal, interprets them, and executes them. I most cases, it provides a command line user interface for Unix-like operating systems, where can interactively type directly to the running shell or pipe in shell scripts. [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we designed and implemented a simple UNIX command line interpreter from the ground ^-^.
 
-This repository contains the files for Holberton's **simple_shell**. It can be compiled using GCC and will execute a simple shell that can be used for some basic tasks and programs most commonly found in the /bin/ folder.
+## General requirements to consider
+- All our files will be compiled on Ubuntu 14.04 LTS
+- Our C programs and functions will be compiled with gcc 4.8.4 using the flags ```-Wall -Werror -Wextra and -pedantic ```
+- Our files ends end with a new line, with no memory leaks
+- Our code will use the [Betty style](https://github.com/holbertonschool/Betty). It will be checked using ```betty-style.pl and betty-doc.pl```.
+- system calls will be used when necessary ([why?](https://www.quora.com/Why-are-system-calls-expensive-in-operating-systems))
 
-# Pre-requisites
+## Program Output
+- Our program have the exact same output as ```sh (/bin/sh)``` as well as the exact same error output.
+- The only difference is when you print an error, the name of the program must be equivalent to the ``argv[0]``
 
-### Authorized functions and macros:
+## List of functions and system calls we used
+```Bash 
 - access (man 2 access)
 - chdir (man 2 chdir)
 - close (man 2 close)
@@ -35,59 +48,60 @@ This repository contains the files for Holberton's **simple_shell**. It can be c
 - wait3 (man 2 wait3)
 - wait4 (man 2 wait4)
 - write (man 2 write)
+```
 
-### GCC command to compile:
-`
+## Project Compilation
+You can compile our shell using:
+```Bash
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
-`
-
-This wil compile all the '.c' files and change the output's name to 'hsh'.
-
-### Template to test output:
-=============
+```
+## Testing
+Our shell should work like this in interactive mode:
+```Bash
 $ ./hsh
-
-($) 
-
+($) /bin/ls
 hsh main.c shell.c
-
-$ exit
+($)
+($) exit
 $
-
-
-After you clone this repository and compile the program with the command above, you will generate a file called **hsh** that can be executed by entering  ```./hsh``` in your shell.
-
-The output after the program is executed should look something like this:
 ```
-$|
+#### Also in non-interactive mode:
+```Bash
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
 ```
-Where you will get a prompt in the shape of a dollar sign so you can start typing commands into your shell.  Agood example of how it should execute is the command shown above were the user enters 'ls' and then gets a list of the directory contents.
-## Function Prototypes:
+## The Project's Implementation in Review
+#### Submission requirements:
+1. Write a beautiful code that passes the Betty checks
+2. Write a UNIX command line interpreter.
 
-Brief description of functions contained in project:
+## Functionalities
+#### Our Shell does the following:
+- Display a prompt and wait for the user to type a command, ending wih a new line.
+- The prompt is displayed again each time a command has been executed.
+- The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
+- The command lines are made only of one word. No arguments will be passed to programs.
+- If an executable cannot be found, an error message is displayed to the user, and then display the prompt again.
+- We will handle errors, including the “end of file” condition (Ctrl+D)
 
-**_strcmpdir** :  compares strings to find dir.
-**find_command** :  finds command to execute in path routes.
-**charput** :  writes the character like putchar.
-**place** :  similar to puts in C.
-**_strlen** :  string length.
-**str_concat** :  concatenate strings.
-**lookforslash** :  identify if first char is a '/'.
-**compareExit** :  checks if user typed exit.
-**compareEnv** :  checks if user typed env.
-**execute_proc** :  receives command and args from getline to be executed.
-**identify_string** :  returns pointer with folder address.
-**prompt** :  infinite loop with fork to keep prompt going.
-**controlC**: avoid program closing when pressing ctrl + c.
-**main**: initialize program.
+## Using the man_1_simple_shell page
+- Display the page
+```Bash
+ man ./man_1_simple_shell
+```
 
-README.md: this.
 
-## General Flow Chart:
-
-<a href="https://ibb.co/1MMmc0J"><img src="https://i.ibb.co/5kkRZ1x/Untitled-Diagram.png" alt="Untitled-Diagram" border="0"></a>
-
-### Contact Info:
-
-Git: [Daisy Mushabe](https://github.com/Dewinsy), [Nopaha Benjamin](https://github.com/BENOP7)
-
+### Contributors
+|Names                |
+|---------------------|
+| Daisy Mushabe | 
+| Nopaha Benjamin | 

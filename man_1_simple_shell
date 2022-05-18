@@ -1,41 +1,37 @@
-.TH man 1 "28 Nov 2019" "0.1" "simple_shell man page"
-
+.TH HSH 1 "18th May 2022" "1" "Simple Shell man page"
 .SH NAME
-.B simple_shell
-- Simple shell made in C to interact with a linux operating system.
-
+.B hsh
+- A simple UNIX command interpreter.
 .SH SYNOPSIS
-./hsh [options] [file]
-
+.B ./hsh
 .SH DESCRIPTION
-Simple_Shell is an sh-compatible command language interpreter that executes
-commands read from the standard input.
+This program is a simple shell that has been made by the Holberton guidelines. It contains basic features and functions found in other shell programs.
+.SS Overview
+This shell is an executable that reads lines from the prompt, interprets them, and generally executes other commands. It runs by compiling all .c files in the repository to create an executable
+.SS Path Search
+When locating a command, this shell first looks to see if it has an executable by that name in the PATH of env. Then it looks for builtin commands by that name.
 
-.SH Return Value
-
-Always 0 for success, other number means failure.
-
-.SH PATH
-
-It will look inside al directions in PATH env variable for executable.
-
-.SH
-
-.SH OPTIONS
-.B simple_shell
-Command options will be typed after the main command followed by a space and a
- '-' symbol.
-
-.SH EXAMPLE
-
-[command] [options]
+.SH MODES
+.B hsh
+Interactive mode
+.SS
+EXAMPLE:
 $ ls -l
+.B ./hsh
+Non-interactive mode
+.SS
+EXAMPLE:
+$ echo "ls -l" | ./hsh
+
+.SH BUILT-IN COMMANDS
+.B env
+- prints environment
+.B exit
+- exits the shell
 
 .SH SEE ALSO
-.I peerlearning(2), projectbased(2), fullstack(2), Betty(1)
-
+.I sh(1), Betty(1)
 .SH BUGS
-Single space required after argument.
-
+No known bugs.
 .SH AUTHOR
-Daisy Mushabe, Nopaha Benjamin.
+Daisy Mushabe, Nopaha Benjamin
