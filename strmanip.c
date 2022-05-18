@@ -12,7 +12,7 @@ char **spltstr(char *str)
 	return (NULL);
 	words = malloc(strlen(str) * sizeof(*words));
 	if (!words)
-		return NULL;
+		return (NULL);
 
 	w = strtok(str, " \n");
 	if (!w)
