@@ -22,17 +22,17 @@ char **spltstr(char *str)
 	i = 1;
 
 	while (w)
-    {
-        w = strtok(NULL, " \n");
-        if (!w)
-        {
-            ++i;
-            break;
-        }
-        words[i] = w;
-        i++;
-    }
+	{
+		w = strtok(NULL, " \n");
+		if (!w)
+		{
+			++i;
+			break;
+		}
+		words[i] = w;
+		i++;
+	}
 
-    words[i] = NULL;
-    return (words);
+	words[i] = NULL;
+	return (words);
 }
