@@ -3,25 +3,25 @@
 
 char **spltstr(char *str)
 {
-    char **words;
-    unsigned int i = 0;
-    
-    char *w = NULL;
+	char **words;
+	unsigned int i = 0;
 
-    if (!str)
-        return NULL;
-    words = malloc(strlen(str) * sizeof(*words));
-    if (!words)
-        return NULL;
+	char *w = NULL;
 
-    w = strtok(str, " \n");
-    if (!w)
-        words[0] = str;
-    else
-        words[0] = w;
-    i = 1;
+	if (!str)
+	return NULL;
+	words = malloc(strlen(str) * sizeof(*words));
+	if (!words)
+		return NULL;
 
-    while (w)
+	w = strtok(str, " \n");
+	if (!w)
+		words[0] = str;
+	else
+		words[0] = w;
+	i = 1;
+
+	while (w)
     {
         w = strtok(NULL, " \n");
         if (!w)
