@@ -9,7 +9,7 @@ char **spltstr(char *str)
 	char *w = NULL;
 
 	if (!str)
-	return NULL;
+	return (NULL);
 	words = malloc(strlen(str) * sizeof(*words));
 	if (!words)
 		return NULL;
