@@ -1,6 +1,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * spltstr - splits the words
+ * @str: The string
+ *
+ * Return: words.
+ * Else return NULL
+ */
+
 char **spltstr(char *str)
 {
 	char **words;
